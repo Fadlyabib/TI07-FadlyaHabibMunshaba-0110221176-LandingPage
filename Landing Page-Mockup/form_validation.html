@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berlangganan - DiamondHoster</title>
+    <style>
+        #gagal1 {
+            color: red;
+            display: none;
+        }
+        #gagal2 {
+            color: red;
+            display: none;
+        }
+        #gagal3 {
+            color: red;
+            display: none;
+        }
+        #gagal4 {
+            color: red;
+            display: none;
+        }
+        #gagal5 {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Berlangganan</h1>
+    <form id="submit" onsubmit="valid(); return false;">
+        <table>
+            <tr>
+                <td>Nama Pelanggan</td>
+                <td>:</td>
+                <td><input type="text" name="nama" id="nama" minlength="2" maxlength="30"></td>
+                <td id="gagal1">Data tidak valid!</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>:</td>
+                <td><input type="email" name="email" id="email"></td>
+                <td id="gagal2">Data tidak valid!</td>
+            </tr>
+            <tr>
+                <td>Jam Pesanan</td>
+                <td>:</td>
+                <td><input type="time" name="time" id="time"></td>
+                <td id="gagal3">Data tidak valid!</td>
+            </tr>
+            <tr>
+                <td>Nama Layanan</td>
+                <td>:</td>
+                <td><input type="text" name="tujuan" id="tujuan"></td>
+                <td id="gagal4">Data tidak valid!</td>
+            </tr>
+            <tr>
+                <td>Pesanan</td>
+                <td>:</td>
+                <td><input type="number" name="tiket" id="tiket" min="1" max="10"></td>
+                <td id="gagal5">Data tidak valid!</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><button type="submit">Submit</button></td>
+                <td><a href="index.html">Kembali Ke Beranda</a></td>
+            </tr>
+        </table>
+    </form>
+    <div id="berhasil"></div>
+    <script>
+        function valid() {
+            let betul = document.getElementById("berhasil");
+            let namaPelanggan = document.getElementById("nama").value;
+            let namaEmail = document.getElementById("email").value;
+            let jamBerangkat = document.getElementById("time").value;
+            let tujuanBerangkat = document.getElementById("tujuan").value;
+            let jumlahTiket = document.getElementById("tiket").value;
+            if (namaPelanggan == "") {
+                event.preventDefault();
+                document.getElementById("gagal1").style.display = "block";
+                namaPelanggan.focus();
+                return false;
+            } else {
+                document.getElementById("gagal1").style.display = "none";
+            }
+            if (namaEmail == "") {
+                event.preventDefault();
+                document.getElementById("gagal2").style.display = "block";
+                namaEmail.focus();
+                return false;
+            } else {
+                document.getElementById("gagal2").style.display = "none";
+            }
+            if (jamBerangkat == "") {
+                event.preventDefault();
+                document.getElementById("gagal3").style.display = "block";
+                jamBerangkat.focus();
+                return false;
+            } else {
+                document.getElementById("gagal3").style.display = "none";
+            }
+            if (tujuanBerangkat == "") {
+                event.preventDefault();
+                document.getElementById("gagal4").style.display = "block";
+                tujuanBerangkat.focus();
+                return false;
+            } else {
+                document.getElementById("gagal4").style.display = "none";
+            }
+            if (jumlahTiket == "") {
+                event.preventDefault();
+                document.getElementById("gagal5").style.display = "block";
+                jumlahTiket.focus();
+                return false;
+            } else {
+                document.getElementById("gagal5").style.display = "none";
+            }
+            let validasi =
+                "<h2>" + "Validasi Berhasil!" + "</h2>" +
+                "Nama Pelanggan : " + namaPelanggan + "<br>" +
+                "Email : " + namaEmail + "<br>" +
+                "Jam Keberangkatan : " + jamBerangkat + "<br>" +
+                "Tujuan Keberangkatan : " + tujuanBerangkat + "<br>" +
+                "Jumlah Tiket : " + jumlahTiket + "<br>";
+
+            betul.innerHTML = validasi
+        }
+    </script>
+</body>
+</html>
